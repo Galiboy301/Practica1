@@ -1,0 +1,43 @@
+<head>
+</head>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo">La Nueva Naranja</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a>Listado de Usuarios</a></li>
+    </ul>
+  </div>
+</nav>
+<h1> </h1>
+<h2> </h2>
+<table>
+	<tr> 
+		<thead>
+			<th>Usuario</th>
+			<th>Email</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Foto</th>
+		</thead>
+	</tr>
+	<% @users.each do |user| %>
+<tr>
+	<td><%= user.nickname %></td>
+	<td><%= user.email %></td>
+	<td><%= user.name %></td>
+	<td><%= user.apellido %></td>
+	<td><%= user.foto %></td>
+	<td>
+		<% if user_signed_in? %>
+		<%= link_to "Editar", edit_user_path(user) %>
+		<%= link_to "Eliminar", user, method: :delete, data: {confirm: "¿Deseas eliminar este registro?"} %>
+		<% end %>
+	</td>
+</tr>
+		<% end %>
+</table>
+<% if user_signed_in? %>
+<form action= 'http://localhost:3000/users/new'>
+    		<a class="waves-effect waves-light btn"><input type="submit" value="Agregar" /></a>
+			</form>
+<% end %>

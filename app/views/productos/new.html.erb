@@ -1,0 +1,26 @@
+<%= form_for @productos do |f| %>
+
+<div>
+		<%= f.label :Nombre %>
+		<%= f.text_field :nombre %>
+</div>
+<div>
+		<%= f.label :Descripción %>
+		<%= f.text_area :descripcion %>
+</div>
+<div>
+		<%= f.label :Precio %>
+		<%= f.number_field :precio %>
+</div>
+<div>
+		<%= f.label :Marca %>
+		<%= f.text_field :marca %>
+</div>
+<div>
+		<%= f.label :Foto %>
+		<%= f.file_field :foto %>
+</div>
+<div>
+		<%= f.submit :Agregar %>
+</div>
+<% end %>

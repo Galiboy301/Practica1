@@ -1,0 +1,39 @@
+<h2>Nuevo usuario</h2>
+<%= form_for @users do |f| %>
+<div>
+		<%= f.label :Usuario %>
+		<%= f.text_field :nickname %>
+</div>
+<div>
+		<%= f.label :Nombre %>
+		<%= f.text_area :name %>
+</div>
+<div>
+		<%= f.label :Apellido %>
+		<%= f.text_field :apellido %>
+</div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  <div>
+		<%= f.label :Foto %>
+		<%= f.file_field :foto %>
+</div>
+  <div class="actions">
+    <%= f.submit "Agregar" %>
+  </div>
+<% end %>
